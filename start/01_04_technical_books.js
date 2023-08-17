@@ -24,10 +24,31 @@ class Book {
   sell(numCopiesSold = 1) {
     this.numCopies -= numCopiesSold;
   }
-  
+
   restock(numCopiesStocked = 5) {
     this.numCopies += numCopiesStocked;
   }
 }
 
 // Write your code here
+class TechnicalBook extends Book {
+  constructor(title, author, ISBN, numCopies, edition) {
+    super(title, author, ISBN, numCopies);
+    this.edition = edition;
+  }
+
+  getEdition() {
+    return `The current version of this book is ${this.edition}.`;
+  }
+}
+
+const CrackingTheCodingInterview = new TechnicalBook(
+  "Cracking The Coding Interview",
+  "Gayle Laackmann McDowell",
+  1209123,
+  7,
+  "2.3"
+);
+
+console.log(CrackingTheCodingInterview.availability);
+console.log(CrackingTheCodingInterview.getEdition());
